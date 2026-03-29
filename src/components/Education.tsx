@@ -11,7 +11,7 @@ const Education = () => {
 
   return (
     <section
-      id="education"
+      id="background"
       className={`py-24 px-6 ${isDark ? "bg-white/[0.02]" : "bg-gray-50/80"}`}
     >
       <div className="max-w-4xl mx-auto">
@@ -29,7 +29,7 @@ const Education = () => {
           >
             <GraduationCap size={22} />
           </div>
-          <h2 className="text-3xl font-bold">Education</h2>
+          <h2 className="text-3xl font-bold">Background</h2>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-3">

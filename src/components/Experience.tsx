@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase } from "lucide-react";
+import { Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import { experiences } from "@/data/resume";
 import { useTheme } from "@/context/ThemeContext";
@@ -10,23 +10,28 @@ const Experience = () => {
   const isDark = theme === "dark";
 
   return (
-    <section id="experience" className="py-24 px-6 relative">
+    <section id="journey" className="py-24 px-6 relative">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-16"
+          className="mb-16"
         >
-          <div
-            className={`p-2.5 rounded-xl ${
-              isDark ? "bg-indigo-500/10 text-indigo-400" : "bg-indigo-100 text-indigo-600"
-            }`}
-          >
-            <Briefcase size={22} />
+          <div className="flex items-center gap-3 mb-3">
+            <div
+              className={`p-2.5 rounded-xl ${
+                isDark ? "bg-indigo-500/10 text-indigo-400" : "bg-indigo-100 text-indigo-600"
+              }`}
+            >
+              <Rocket size={22} />
+            </div>
+            <h2 className="text-3xl font-bold">Where I've Built</h2>
           </div>
-          <h2 className="text-3xl font-bold">Experience</h2>
+          <p className={`text-sm max-w-xl ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+            A timeline of the places where I've shipped products, solved hard problems, and grown as a developer.
+          </p>
         </motion.div>
 
         <div className="relative">
@@ -70,9 +75,9 @@ const Experience = () => {
                       : "bg-white border-gray-200 hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-100/50"
                   }`}
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                     <div>
-                      <h3 className="text-xl font-bold">{exp.title}</h3>
+                      <h3 className="text-xl font-bold">{exp.role}</h3>
                       <p
                         className={`font-semibold ${
                           isDark ? "text-indigo-400" : "text-indigo-600"
@@ -91,8 +96,15 @@ const Experience = () => {
                       {exp.period}
                     </span>
                   </div>
+                  <p
+                    className={`text-sm mb-4 ${
+                      isDark ? "text-gray-500" : "text-gray-400"
+                    }`}
+                  >
+                    {exp.description}
+                  </p>
                   <ul className="space-y-2.5">
-                    {exp.bullets.map((bullet, j) => (
+                    {exp.highlights.map((highlight, j) => (
                       <li
                         key={j}
                         className={`text-sm leading-relaxed flex gap-2.5 ${
@@ -104,7 +116,7 @@ const Experience = () => {
                             isDark ? "bg-indigo-500/60" : "bg-indigo-400"
                           }`}
                         />
-                        {bullet}
+                        {highlight}
                       </li>
                     ))}
                   </ul>

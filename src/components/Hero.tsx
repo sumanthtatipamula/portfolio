@@ -111,20 +111,20 @@ const Hero = () => {
           variants={item}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]"
         >
-          Hi, I'm{" "}
+          {personalInfo.tagline.split(" ").slice(0, 2).join(" ")}{" "}
           <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-            {personalInfo.name}
+            {personalInfo.tagline.split(" ").slice(2).join(" ")}
           </span>
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Bio */}
         <motion.p
           variants={item}
-          className={`mt-5 text-lg md:text-xl font-medium ${
+          className={`mt-5 text-lg md:text-xl font-medium max-w-2xl mx-auto ${
             isDark ? "text-gray-400" : "text-gray-500"
           }`}
         >
-          {personalInfo.title} with 5+ years crafting exceptional digital experiences
+          {personalInfo.bio}
         </motion.p>
 
         {/* Contact pills */}
@@ -172,12 +172,12 @@ const Hero = () => {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.a
-            href="#experience"
+            href="#journey"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-shadow duration-300"
           >
-            View My Work
+            Explore My Work
             <ArrowRight
               size={16}
               className="group-hover:translate-x-1 transition-transform duration-300"
@@ -194,7 +194,7 @@ const Hero = () => {
                 : "border-gray-300 text-gray-600 hover:border-gray-400 hover:text-gray-900 hover:bg-gray-50"
             }`}
           >
-            Get In Touch
+            Let's Talk
           </motion.a>
         </motion.div>
       </motion.div>

@@ -2,7 +2,7 @@
 
 import { Trophy, Award, Star, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import { achievements, certifications } from "@/data/resume";
+import { highlights, certifications } from "@/data/resume";
 import { useTheme } from "@/context/ThemeContext";
 
 const Achievements = () => {
@@ -30,11 +30,11 @@ const Achievements = () => {
           >
             <Trophy size={22} />
           </div>
-          <h2 className="text-3xl font-bold">Achievements</h2>
+          <h2 className="text-3xl font-bold">Highlights</h2>
         </motion.div>
 
         <div className="space-y-4 mb-20">
-          {achievements.map((item, i) => (
+          {highlights.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -30 }}

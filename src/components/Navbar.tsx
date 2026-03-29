@@ -7,9 +7,9 @@ import { useTheme } from "@/context/ThemeContext";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
+  { label: "Journey", href: "#journey" },
+  { label: "Background", href: "#background" },
+  { label: "Toolkit", href: "#toolkit" },
   { label: "Contact", href: "#contact" },
 ];
 

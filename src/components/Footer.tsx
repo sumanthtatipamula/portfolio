@@ -26,7 +26,7 @@ const Footer = () => {
             <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent font-medium">
               {personalInfo.name}
             </span>
-            . Built with React & Tailwind CSS.
+            . Crafted with care.
           </motion.p>
           <div className="flex items-center gap-5">
             <a

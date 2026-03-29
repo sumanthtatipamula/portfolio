@@ -60,9 +60,9 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Let's Work{" "}
+            Got an idea?{" "}
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Together
+              Let's make it real.
             </span>
           </h2>
           <p
@@ -70,8 +70,8 @@ const Contact = () => {
               isDark ? "text-gray-400" : "text-gray-500"
             }`}
           >
-            I'm always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision.
+            Whether it's a collaboration, a cool project, or just a chat about
+            tech — I'd love to hear from you.
           </p>
         </motion.div>
 

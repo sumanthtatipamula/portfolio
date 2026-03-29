@@ -14,24 +14,23 @@ const siteUrl = "https://sumanthtataipamula.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Sumanth Tatipamula | Software Developer",
+    default: "Sumanth Tatipamula — I build things for the web",
     template: "%s | Sumanth Tatipamula",
   },
   description:
-    "Sumanth Tatipamula is a Software Developer with 5+ years of experience at ServiceNow, Oracle, and Amazon. Specializing in React, JavaScript, and full-stack development.",
+    "Personal portfolio of Sumanth Tatipamula — a developer who loves turning complex problems into elegant interfaces. Explore my journey through ServiceNow, Oracle, Amazon, and beyond.",
   keywords: [
     "Sumanth Tatipamula",
-    "Software Developer",
-    "Software Engineer",
-    "React Developer",
+    "portfolio",
+    "web developer",
+    "React",
     "JavaScript",
     "TypeScript",
     "ServiceNow",
     "Oracle",
     "Amazon",
-    "Full Stack Developer",
-    "Hyderabad",
-    "India",
+    "full stack",
+    "frontend",
   ],
   authors: [{ name: "Sumanth Tatipamula", url: siteUrl }],
   creator: "Sumanth Tatipamula",
@@ -39,16 +38,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Sumanth Tatipamula - Portfolio",
-    title: "Sumanth Tatipamula | Software Developer",
+    siteName: "Sumanth Tatipamula",
+    title: "Sumanth Tatipamula — I build things for the web",
     description:
-      "Software Developer with 5+ years of experience at ServiceNow, Oracle, and Amazon. Crafting exceptional digital experiences.",
+      "Explore the work and journey of Sumanth Tatipamula — crafting interfaces at ServiceNow, Oracle, and Amazon.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sumanth Tatipamula | Software Developer",
+    title: "Sumanth Tatipamula — I build things for the web",
     description:
-      "Software Developer with 5+ years of experience at ServiceNow, Oracle, and Amazon.",
+      "Explore the work and journey of Sumanth Tatipamula — crafting interfaces at ServiceNow, Oracle, and Amazon.",
   },
   robots: {
     index: true,

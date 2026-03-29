@@ -127,7 +127,6 @@ export const highlights: string[] = [
   "TrailBlazer Award recipient at Oracle for going above and beyond in 2022",
   "1st place in the RealPage Android Development Hackathon",
   "Active member of the Google Developer Student Club during college",
-  "Runner-up at the CSI Telangana State Level Tech Quiz",
 ];
 
 export const certifications: string[] = [

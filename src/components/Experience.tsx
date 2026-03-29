@@ -1,67 +1,112 @@
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { experiences } from "../data/resume";
+import { useTheme } from "../context/ThemeContext";
 
 const Experience = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
-    <section id="experience" className="py-24 px-6">
+    <section id="experience" className="py-24 px-6 relative">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-12"
+          className="flex items-center gap-3 mb-16"
         >
-          <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
-            <Briefcase size={24} />
+          <div
+            className={`p-2.5 rounded-xl ${
+              isDark ? "bg-indigo-500/10 text-indigo-400" : "bg-indigo-100 text-indigo-600"
+            }`}
+          >
+            <Briefcase size={22} />
           </div>
           <h2 className="text-3xl font-bold">Experience</h2>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-blue-500/50 via-violet-500/50 to-transparent hidden md:block" />
+          <div
+            className={`absolute left-[19px] top-2 bottom-2 w-px hidden md:block ${
+              isDark
+                ? "bg-gradient-to-b from-indigo-500/50 via-purple-500/50 to-transparent"
+                : "bg-gradient-to-b from-indigo-300 via-purple-300 to-transparent"
+            }`}
+          />
 
-          <div className="space-y-12">
+          <div className="space-y-10">
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="relative md:pl-12"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.12 }}
+                className="relative md:pl-14"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-[12px] top-1.5 w-[15px] h-[15px] rounded-full bg-gray-950 border-2 border-blue-500 hidden md:block" />
+                <motion.div
+                  className={`absolute left-[11px] top-6 w-[17px] h-[17px] rounded-full border-[3px] hidden md:block ${
+                    isDark
+                      ? "bg-[#0a0a0f] border-indigo-500"
+                      : "bg-[#fafafa] border-indigo-500"
+                  }`}
+                  whileInView={{ scale: [0, 1.2, 1] }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.12 + 0.2 }}
+                />
 
-                <div className="p-6 rounded-xl bg-gray-900/50 border border-gray-800/50 hover:border-gray-700/50 transition-colors duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-4">
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className={`group p-6 rounded-2xl border transition-all duration-500 ${
+                    isDark
+                      ? "bg-white/[0.03] border-white/[0.06] hover:border-indigo-500/30 hover:bg-white/[0.05] hover:shadow-lg hover:shadow-indigo-500/5"
+                      : "bg-white border-gray-200 hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-100/50"
+                  }`}
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                     <div>
-                      <h3 className="text-xl font-semibold text-white">
-                        {exp.title}
-                      </h3>
-                      <p className="text-blue-400 font-medium">{exp.company}</p>
+                      <h3 className="text-xl font-bold">{exp.title}</h3>
+                      <p
+                        className={`font-semibold ${
+                          isDark ? "text-indigo-400" : "text-indigo-600"
+                        }`}
+                      >
+                        {exp.company}
+                      </p>
                     </div>
-                    <span className="text-sm text-gray-500 whitespace-nowrap">
+                    <span
+                      className={`text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap ${
+                        isDark
+                          ? "bg-white/5 text-gray-400"
+                          : "bg-gray-100 text-gray-500"
+                      }`}
+                    >
                       {exp.period}
                     </span>
                   </div>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2.5">
                     {exp.bullets.map((bullet, j) => (
                       <li
                         key={j}
-                        className="text-gray-400 text-sm leading-relaxed flex gap-2"
+                        className={`text-sm leading-relaxed flex gap-2.5 ${
+                          isDark ? "text-gray-400" : "text-gray-600"
+                        }`}
                       >
-                        <span className="text-blue-400/60 mt-1.5 shrink-0">
-                          ▹
-                        </span>
+                        <span
+                          className={`mt-2 shrink-0 w-1.5 h-1.5 rounded-full ${
+                            isDark ? "bg-indigo-500/60" : "bg-indigo-400"
+                          }`}
+                        />
                         {bullet}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>

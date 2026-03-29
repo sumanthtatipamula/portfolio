@@ -1,7 +1,9 @@
+"use client";
+
 import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
-import { education } from "../data/resume";
-import { useTheme } from "../context/ThemeContext";
+import { education } from "@/data/resume";
+import { useTheme } from "@/context/ThemeContext";
 
 const Education = () => {
   const { theme } = useTheme();

@@ -1,7 +1,9 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "@/context/ThemeContext";
 
 const navLinks = [
   { label: "About", href: "#about" },

@@ -1,7 +1,9 @@
+"use client";
+
 import { MapPin, Mail, ChevronDown, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { personalInfo } from "../data/resume";
-import { useTheme } from "../context/ThemeContext";
+import { personalInfo } from "@/data/resume";
+import { useTheme } from "@/context/ThemeContext";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" width={16} height={16} fill="currentColor" className={className}>

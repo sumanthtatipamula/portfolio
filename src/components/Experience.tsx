@@ -1,7 +1,9 @@
+"use client";
+
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
-import { experiences } from "../data/resume";
-import { useTheme } from "../context/ThemeContext";
+import { experiences } from "@/data/resume";
+import { useTheme } from "@/context/ThemeContext";
 
 const Experience = () => {
   const { theme } = useTheme();

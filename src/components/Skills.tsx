@@ -1,7 +1,9 @@
+"use client";
+
 import { Code2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { skills } from "../data/resume";
-import { useTheme } from "../context/ThemeContext";
+import { skills } from "@/data/resume";
+import { useTheme } from "@/context/ThemeContext";
 
 const skillMeta: Record<string, { gradient: string; darkBg: string; lightBg: string; darkText: string; lightText: string }> = {
   "C/C++":      { gradient: "from-orange-400 to-red-400",    darkBg: "bg-orange-500/10", lightBg: "bg-orange-50",  darkText: "text-orange-400", lightText: "text-orange-600" },

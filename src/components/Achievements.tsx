@@ -1,7 +1,9 @@
+"use client";
+
 import { Trophy, Award, Star, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import { achievements, certifications } from "../data/resume";
-import { useTheme } from "../context/ThemeContext";
+import { achievements, certifications } from "@/data/resume";
+import { useTheme } from "@/context/ThemeContext";
 
 const Achievements = () => {
   const { theme } = useTheme();

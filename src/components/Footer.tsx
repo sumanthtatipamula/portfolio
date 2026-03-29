@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { personalInfo } from "../data/resume";
-import { useTheme } from "../context/ThemeContext";
+import { personalInfo } from "@/data/resume";
+import { useTheme } from "@/context/ThemeContext";
 
 const Footer = () => {
   const { theme } = useTheme();

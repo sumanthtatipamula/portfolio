@@ -32,18 +32,24 @@ const Hero = () => {
       className="min-h-screen flex flex-col items-center justify-center px-6 pt-16 relative overflow-hidden"
     >
       {/* Animated background orbs */}
-      <div
-        className={`absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full blur-[120px] animate-float ${
+      <motion.div
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className={`absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full blur-[120px] ${
           isDark ? "bg-indigo-600/15" : "bg-indigo-400/20"
         }`}
       />
-      <div
-        className={`absolute bottom-1/3 -right-40 w-[400px] h-[400px] rounded-full blur-[100px] animate-float-delayed ${
+      <motion.div
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className={`absolute bottom-1/3 -right-40 w-[400px] h-[400px] rounded-full blur-[100px] ${
           isDark ? "bg-purple-600/15" : "bg-purple-400/15"
         }`}
       />
-      <div
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] animate-pulse-slow ${
+      <motion.div
+        animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.05, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] ${
           isDark ? "bg-pink-600/8" : "bg-pink-400/10"
         }`}
       />
@@ -64,7 +70,7 @@ const Hero = () => {
         {/* Avatar */}
         <motion.div variants={item} className="relative inline-block mb-8">
           <div className="relative">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-[3px] animate-gradient">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-[3px]">
               <div
                 className={`w-full h-full rounded-full flex items-center justify-center text-4xl font-extrabold ${
                   isDark ? "bg-[#0a0a0f] text-white" : "bg-[#fafafa] text-gray-900"
@@ -73,7 +79,11 @@ const Hero = () => {
                 ST
               </div>
             </div>
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-indigo-500/20 to-pink-500/20 blur-xl -z-10 animate-pulse-slow" />
+            <motion.div
+              animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.05, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-2 rounded-full bg-gradient-to-br from-indigo-500/20 to-pink-500/20 blur-xl -z-10"
+            />
           </div>
         </motion.div>
 
@@ -100,7 +110,7 @@ const Hero = () => {
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]"
         >
           Hi, I'm{" "}
-          <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
+          <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             {personalInfo.name}
           </span>
         </motion.h1>
@@ -120,45 +130,38 @@ const Hero = () => {
           variants={item}
           className="mt-8 flex flex-wrap items-center justify-center gap-3"
         >
-          {[
-            {
-              icon: <MapPin size={14} />,
-              text: personalInfo.location,
-              color: "indigo",
-            },
-            {
-              icon: <Mail size={14} />,
-              text: personalInfo.email,
-              href: `mailto:${personalInfo.email}`,
-              color: "purple",
-            },
-            {
-              icon: <GithubIcon />,
-              text: personalInfo.github,
-              href: `https://github.com/${personalInfo.github}`,
-              color: "pink",
-              external: true,
-            },
-          ].map((info, i) => {
-            const Wrapper = info.href ? "a" : "span";
-            return (
-              <Wrapper
-                key={i}
-                {...(info.href ? { href: info.href } : {})}
-                {...(info.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-                  isDark
-                    ? `bg-${info.color}-500/10 text-${info.color}-400 border border-${info.color}-500/20 hover:border-${info.color}-500/40 hover:bg-${info.color}-500/15`
-                    : `bg-${info.color}-50 text-${info.color}-600 border border-${info.color}-200 hover:border-${info.color}-300 hover:bg-${info.color}-100`
-                }`}
-              >
-                {info.icon}
-                {info.text}
-              </Wrapper>
-            );
-          })}
+          <span className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
+            isDark
+              ? "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
+              : "bg-indigo-50 text-indigo-600 border border-indigo-200"
+          }`}>
+            <MapPin size={14} />
+            {personalInfo.location}
+          </span>
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
+              isDark
+                ? "bg-purple-500/10 text-purple-400 border border-purple-500/20 hover:border-purple-500/40 hover:bg-purple-500/15"
+                : "bg-purple-50 text-purple-600 border border-purple-200 hover:border-purple-300 hover:bg-purple-100"
+            }`}
+          >
+            <Mail size={14} />
+            {personalInfo.email}
+          </a>
+          <a
+            href={`https://github.com/${personalInfo.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
+              isDark
+                ? "bg-pink-500/10 text-pink-400 border border-pink-500/20 hover:border-pink-500/40 hover:bg-pink-500/15"
+                : "bg-pink-50 text-pink-600 border border-pink-200 hover:border-pink-300 hover:bg-pink-100"
+            }`}
+          >
+            <GithubIcon />
+            {personalInfo.github}
+          </a>
         </motion.div>
 
         {/* CTA Buttons */}

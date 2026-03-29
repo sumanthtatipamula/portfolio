@@ -48,8 +48,8 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? isDark
-            ? "bg-[#0a0a0f]/80 glass border-b border-white/5 shadow-lg shadow-black/20"
-            : "bg-white/80 glass border-b border-black/5 shadow-lg shadow-black/5"
+            ? "bg-[#0a0a0f]/80 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-white/5 shadow-lg shadow-black/20"
+            : "bg-white/80 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-black/5 shadow-lg shadow-black/5"
           : "bg-transparent"
       }`}
     >
@@ -155,8 +155,8 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className={`md:hidden overflow-hidden ${
               isDark
-                ? "bg-[#0a0a0f]/95 glass border-b border-white/5"
-                : "bg-white/95 glass border-b border-black/5"
+                ? "bg-[#0a0a0f]/95 backdrop-blur-2xl border-b border-white/5"
+                : "bg-white/95 backdrop-blur-2xl border-b border-black/5"
             }`}
           >
             <ul className="flex flex-col px-6 py-4 gap-1">

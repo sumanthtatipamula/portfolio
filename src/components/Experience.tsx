@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import { experiences } from "@/data/resume";
@@ -76,15 +77,32 @@ const Experience = () => {
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-                    <div>
-                      <h3 className="text-xl font-bold">{exp.role}</h3>
-                      <p
-                        className={`font-semibold ${
-                          isDark ? "text-indigo-400" : "text-indigo-600"
-                        }`}
-                      >
-                        {exp.company}
-                      </p>
+                    <div className="flex items-start gap-4 min-w-0">
+                      {exp.logo ? (
+                        <div
+                          className={`shrink-0 p-2.5 rounded-xl ${
+                            isDark ? "bg-white/[0.06] ring-1 ring-white/10" : "bg-gray-50 ring-1 ring-gray-100"
+                          }`}
+                        >
+                          <Image
+                            src={exp.logo}
+                            alt=""
+                            width={120}
+                            height={40}
+                            className="h-8 w-auto max-w-[8.5rem] object-contain object-left opacity-90 dark:opacity-100 dark:brightness-0 dark:invert"
+                          />
+                        </div>
+                      ) : null}
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold">{exp.role}</h3>
+                        <p
+                          className={`font-semibold ${
+                            isDark ? "text-indigo-400" : "text-indigo-600"
+                          }`}
+                        >
+                          {exp.company}
+                        </p>
+                      </div>
                     </div>
                     <span
                       className={`text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap ${

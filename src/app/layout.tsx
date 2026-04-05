@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { personalInfo, siteUrl } from "@/data/resume";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 });
-
-const siteUrl = "https://sumanthtataipamula.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -95,18 +94,23 @@ export default function RootLayout({
                 addressLocality: "Hyderabad",
                 addressCountry: "IN",
               },
-              email: "sumanthtatipamula123@gmail.com",
-              sameAs: ["https://github.com/sumanthtatipamula"],
+              email: personalInfo.email,
+              sameAs: [`https://github.com/${personalInfo.github}`],
               knowsAbout: [
                 "React",
                 "JavaScript",
                 "TypeScript",
                 "Node.js",
                 "Java",
+                "Python",
+                "MongoDB",
                 "SQL",
-                "CSS",
-                "HTML",
+                "AWS",
+                "Microsoft Azure",
                 "Git",
+                "Lit",
+                "Tailwind CSS",
+                "Next.js",
               ],
             }),
           }}

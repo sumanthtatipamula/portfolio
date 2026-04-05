@@ -25,6 +25,7 @@ const Contact = () => {
       icon: Phone,
       label: "Phone",
       value: personalInfo.phone,
+      href: `tel:${personalInfo.phoneDial}`,
       color: "purple",
       darkIcon: "text-purple-400",
       lightIcon: "text-purple-500",
